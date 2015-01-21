@@ -1,0 +1,5 @@
+pl\januszb\rest\client\RestClient.class
+pl\januszb\rest\server\ServerController.class
+pl\januszb\rest\client\Diagnostic.class
+pl\januszb\rest\client\ClientController.class
+pl\januszb\rest\model\Message.class
