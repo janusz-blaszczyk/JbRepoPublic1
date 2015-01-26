@@ -2,12 +2,14 @@ package pl.januszb.rest.server;
 
 import javax.servlet.ServletContext;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.ServletContextAware;
 
@@ -15,6 +17,7 @@ import pl.januszb.rest.model.Message;
 
 @RestController
 @RequestMapping("/rest")
+//@PreAuthorize("hasRole('ROLE_OAUTH')")
 public class ServerController implements ServletContextAware {
 	//injected servlet context
 	private ServletContext context;
@@ -24,13 +27,21 @@ public class ServerController implements ServletContextAware {
 	}
 	
 	@RequestMapping(value = "/isAlive", method = RequestMethod.GET)
-	public ResponseEntity<Message> isServiceAlive() {
+	public ResponseEntity<Message> isServiceAlive(HttpEntity<byte[]> requestEntity	) {
 		Message message;
 		message = new Message();
 		message.setMessage("server is alive");
 		return new ResponseEntity<Message>(message, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/isAliveJs", method = RequestMethod.GET)
+	public @ResponseBody Message isServiceAliveJson() {
+		Message message;
+		message = new Message();
+		message.setMessage("server is alive");
+		return message;
+	}
+	
 	@RequestMapping(value = "/getMessagePost", method = RequestMethod.POST)
 	public ResponseEntity<Message> getMessagePost(
 			@RequestBody String number) {
