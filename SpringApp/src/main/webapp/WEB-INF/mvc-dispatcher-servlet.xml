@@ -6,19 +6,17 @@
 	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
-	        http://www.springframework.org/schema/security 
-        http://www.springframework.org/schema/security/spring-security-3.1.xsd 
-        http://www.springframework.org/schema/security/oauth 
-        http://www.springframework.org/schema/security/spring-security-oauth.xsd"
-
+	http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd 
+    http://www.springframework.org/schema/security/oauth 
+    http://www.springframework.org/schema/security/spring-security-oauth.xsd"
 	xmlns:oauth="http://www.springframework.org/schema/security/oauth"
-
 	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans">
 
-
 	<mvc:annotation-driven />
+	
 	<context:component-scan base-package="pl.januszb.rest.client" />
 	<context:component-scan base-package="pl.januszb.rest.server" />
 
@@ -32,12 +30,10 @@
 		</property>
 	</bean>
 
-	<security:global-method-security
-		pre-post-annotations="enabled" />
-	<!-- OAuth 1.0 0-Legged Security -->
-	<security:http pattern="/api/server/**" use-expressions="true"
+	<security:global-method-security pre-post-annotations="enabled" />
+	<security:http pattern="/api/secure/**" use-expressions="true"
 		create-session="never" entry-point-ref="oauthProcessingFilterEntryPoint">
-		<security:intercept-url pattern="/api/server/**"
+		<security:intercept-url pattern="/api/secure/**"
 			requires-channel="http" access="hasRole('ROLE_OAUTH')" />
 	</security:http>
 

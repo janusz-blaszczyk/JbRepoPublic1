@@ -9,19 +9,19 @@ import pl.januszb.rest.model.Message;
 
 @Controller
 @RequestMapping("/")
-public class ClientController {
+public class WebController {
 
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		Message status;
 		
-		status = RestClient.isServiceAvailable();
+		status = PublicController.isServiceAvailable();
 		model.addAttribute("message", status.getMessage());
 		status = new Message();
-		status = RestClient.getMessage(667);
+		status = PublicController.getMessage(667);
 		model.addAttribute("messagePostParam", status.getMessage());
 		status = new Message();
-		status = RestClient.getMessage("norma semiimperatywna");
+		status = PublicController.getMessage("norma semiimperatywna");
 		model.addAttribute("messagePostBody", status.getMessage());
 		
 		return "diagnostic";

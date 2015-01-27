@@ -7,11 +7,18 @@
 	<packaging>war</packaging>
 	<version>1.0.1</version>
 	<name>sapp</name>
+	<properties>
+		<spring.version>4.1.4.RELEASE</spring.version>
+		<spring.security.version>1.0.0.RELEASE</spring.security.version>
+		<jackson.version>2.5.0</jackson.version>
+		<jersey.version>1.17.1</jersey.version>
+
+		<tomcat.url>http://localhost:8080/manager/text/</tomcat.url>
+		<tomcat.user>admin</tomcat.user>
+		<tomcat.password>adminadmin</tomcat.password>
+		<deploy.path>/sapp</deploy.path>
+	</properties>
 	<dependencies>
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-starter</artifactId> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -20,118 +27,97 @@
 			<scope>provided</scope>
 		</dependency>
 
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.5.0</version>
-		</dependency>
-
 		<!-- jersey client -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-bundle</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sun.jersey.contribs.jersey-oauth</groupId>
 			<artifactId>oauth-signature</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey.contribs.jersey-oauth</groupId>
 			<artifactId>oauth-client</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-core</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-servlet</artifactId>
-			<version>1.17.1</version>
+			<version>${jersey.version}</version>
 		</dependency>
 
 
-
-
-
+		<!-- bez parsowania na rescie ciezko jechac -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.5.0</version>
+			<version>${jackson.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.5.0</version>
+			<version>${jackson.version}</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.tomcat.embed</groupId> -->
-		<!-- <artifactId>tomcat-embed-el</artifactId> -->
-		<!-- <version>8.0.8</version> -->
-		<!-- <scope>provided</scope> -->
-		<!-- </dependency> -->
-
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.tomcat.embed</groupId> -->
-		<!-- <artifactId>tomcat-embed-core</artifactId> -->
-		<!-- <version>8.0.15</version> -->
-		<!-- <scope>provided</scope> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth</artifactId>
-			<version>1.0.0.RELEASE</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -156,29 +142,15 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://localhost:8080/manager/text/</url>
-					<username>admin</username>
-					<password>adminadmin</password>
-					<path>/sapp</path>
-
+					<url>${tomcat.url}</url>
+					<username>${tomcat.user}</username>
+					<password>${tomcat.password}</password>
+					<path>${deploy.path}</path>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>spring-releases</id>
-			<url>https://repo.spring.io/libs-release</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-releases</id>
-			<url>https://repo.spring.io/libs-release</url>
-		</pluginRepository>
-	</pluginRepositories>
 	<description>Maven deploy command:
 clean tomcat7:redeploy</description>
 </project>

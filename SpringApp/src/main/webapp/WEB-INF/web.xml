@@ -15,11 +15,9 @@
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/api/server/*</url-pattern>
+        <url-pattern>/api/secure/*</url-pattern>
     </filter-mapping>
-    
-     <!--Jersey Servlet -->
-     
+
     <servlet>
         <servlet-name>RestService</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -39,7 +37,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>RestService</servlet-name>
-        <url-pattern>/restclient/*</url-pattern>
+        <url-pattern>/api/private/*</url-pattern>
     </servlet-mapping>
     
     
@@ -51,7 +49,7 @@
 
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>/api/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping> 
 
 	<context-param>

@@ -1,5 +1,8 @@
 package pl.januszb.rest.server;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,7 +15,7 @@ import org.springframework.web.context.ServletContextAware;
 import pl.januszb.rest.model.Message;
 
 @RestController
-@RequestMapping("/server/")
+@RequestMapping("/api/secure/")
 @PreAuthorize("hasRole('ROLE_OAUTH')")
 public class SecureServerController implements ServletContextAware {
 	//injected servlet context
@@ -28,6 +31,12 @@ public class SecureServerController implements ServletContextAware {
 		Message message;
 		message = new Message();
 		message.setMessage("server is alive");
+		message.setChildMessage((new Message()));
+		message.getChildMessage().setMessage("child message");
+		Collection<String> list = new ArrayList<>();
+		list.add("a");
+		list.add("b");
+		message.setCollectionOfMessage(list);
 		return message;
 	}
 }	
