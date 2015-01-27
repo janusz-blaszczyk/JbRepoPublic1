@@ -5,7 +5,7 @@
 	<groupId>pl.januszb</groupId>
 	<artifactId>SpringApp</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 	<name>sapp</name>
 	<properties>
 		<spring.version>4.1.4.RELEASE</spring.version>
