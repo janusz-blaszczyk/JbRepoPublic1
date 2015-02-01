@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/termin.css">
     <link rel="stylesheet" href="css/graselcontent.css">
+    <link rel="stylesheet" href="css/wizytaPopup.css">
     <script type="text/javascript" src="javascript/termin.js"></script>
-
+    <script type="text/javascript" src="javascript/wizytaPopup.js"></script>
 </head>
 <body>
 <div id="top">Panel górny z nazwiskiem, przychodnią, poradnią</div>
@@ -54,7 +55,7 @@
         <div class="dzien_naglowek">wtorek 03.02</div>
         <div class="termin termin-pusty"></div>
         <div class="termin termin-zajety">
-            <div class="wizyta">Kowalska Janina</div>
+            <div class="wizyta" onclick="dialog.data('dane', 'Kowalska Janina').dialog('open');">Kowalska Janina</div>
         </div>
         <div class="termin termin-pusty"></div>
         <div class="termin termin-brak-uslug"></div>
@@ -104,6 +105,28 @@
         <div class="termin termin-pusty"></div>
     </div>
 </div>
+
+
+
+<div id="dialog-form" title="Wizyta - szczegóły" class="wizyta-popup">
+    <form>
+        <fieldset>
+            <div>
+                <input type="checkbox"/>pierwszorazowa
+            </div>
+            <div>
+                <input type="checkbox"/>recepturowa
+            </div>
+            <div>
+                <input type="checkbox"/>domowa:
+            </div>
+
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
+
 
 </body>
 </html>
