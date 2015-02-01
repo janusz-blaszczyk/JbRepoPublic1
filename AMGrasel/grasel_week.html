@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Sortable - Include / exclude items</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/termin.css">
+    <link rel="stylesheet" href="css/graselcontent.css">
+    <script type="text/javascript" src="javascript/termin.js"></script>
+
+</head>
+<body>
+<div id="top">Panel górny z nazwiskiem, przychodnią, poradnią</div>
+<div id="left">Panel boczny z wyborem lekarza, poradni</div>
+<div id="content">
+    <div class="godziny">
+        <div class="godziny_naglowek"></div>
+        <div class="godziny_dane">8:00 - 8:20</div>
+        <div class="godziny_dane">8:20 - 8:40</div>
+        <div class="godziny_dane">8:40 - 9:00</div>
+        <div class="godziny_dane">9:00 - 9:20</div>
+        <div class="godziny_dane">9:20 - 9:40</div>
+        <div class="godziny_dane">9:40 - 10:00</div>
+        <div class="godziny_dane">10:00 - 10:20</div>
+        <div class="godziny_dane">10:20 - 10:40</div>
+        <div class="godziny_dane">10:40 - 11:00</div>
+        <div class="godziny_dane">11:00 - 11:20</div>
+        <div class="godziny_dane">11:20 - 11:40</div>
+        <div class="godziny_dane">11:40 - 12:00</div>
+    </div>
+
+    <div class="dzien">
+        <div class="dzien_naglowek">poniedziałek 02.02</div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-zajety">
+            <div class="wizyta">Nowak Maria</div>
+        </div>
+        <div class="termin termin-zajety">
+            <div class="wizyta">Nowak Marian</div>
+        </div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+    </div>
+    <div class="dzien">
+        <div class="dzien_naglowek">wtorek 03.02</div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-zajety">
+            <div class="wizyta">Kowalska Janina</div>
+        </div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-brak-uslug"></div>
+        <div class="termin termin-brak-uslug"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-zajety">
+            <div class="wizyta">Kowalski Jan</div>
+        </div>
+    </div>
+    <div class="dzien">
+        <div class="dzien_naglowek">środa 04.02</div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+    </div>
+    <div class="dzien">
+        <div class="dzien_naglowek">czwartek 04.02</div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+    </div>
+    <div class="dzien">
+        <div class="dzien_naglowek">piątek 05.02</div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+        <div class="termin termin-pusty"></div>
+    </div>
+</div>
+
+</body>
+</html>
